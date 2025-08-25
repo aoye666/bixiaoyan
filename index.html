@@ -12,205 +12,268 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             color: #333;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #f0f5ff 0%, #e6f7ff 100%);
             min-height: 100vh;
+            padding-bottom: 100px;
+            position: relative;
+            overflow-x: hidden;
         }
-
+        
         .container {
-            max-width: 1200px;
+            width: 100%;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
         }
-
+        
         /* 头部样式 */
         header {
             text-align: center;
-            padding: 60px 20px 40px;
-            color: #333;
+            padding: 40px 20px;
+            margin-bottom: 40px;
         }
-
-        .logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
+        
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            background: white;
         }
-
-        .logo img {
+        
+        .logo-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
+        
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 15px;
-            font-weight: 500;
+            font-weight: 600;
+            color: #2c3e50;
         }
-
+        
         .subtitle {
-            font-size: 1.1rem;
-            color: #6c757d;
+            font-size: 1.3rem;
+            color: #3498db;
             max-width: 600px;
             margin: 0 auto;
         }
-
-        /* 功能特性区域 */
-        .features {
-            background: #ffffff;
-            border: 1px solid #e9ecef;
-            border-radius: 12px;
-            padding: 40px 30px;
-            margin-bottom: 40px;
+        
+        /* 分隔线 */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(52, 152, 219, 0.3), transparent);
+            width: 80%;
+            margin: 50px auto;
         }
-
+        
+        /* 功能特性区域 - 改为简洁文字介绍 */
+        .features {
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+        
         .section-title {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 40px;
-            color: #333;
-            font-weight: 500;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 15px;
         }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 3px;
         }
-
-        .feature-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e9ecef;
+        
+        .feature-item {
+            margin-bottom: 35px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.1);
         }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #495057;
-        }
-
+        
         .feature-title {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #333;
-            font-weight: 500;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
+        
         .feature-desc {
-            color: #6c757d;
+            color: #555;
+            font-size: 1.1rem;
             line-height: 1.7;
-            font-size: 0.95rem;
+            padding-left: 35px;
         }
-
-        /* 底部 */
-        footer {
-            text-align: center;
-            color: #6c757d;
-            padding: 30px;
-            font-size: 0.9rem;
-            border-top: 1px solid #e9ecef;
+        
+        /* 悬浮毛玻璃按钮 */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 14px 30px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            color: #3498db;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            max-width: 220px;
+            transition: all 0.3s ease;
         }
-
+        
+        .floating-btn:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateX(-50%) translateY(-5px);
+            box-shadow: 0 12px 30px rgba(52, 152, 219, 0.35);
+        }
+        
+        /* 核心解决方案 - 修复Coze输入栏遮挡问题 */
+        .coze-web-sdk-chat-input-container {
+            bottom: 50px !important; /* 提高输入框位置 */
+        }
+        
+        .coze-web-sdk-footer {
+            height: 40px !important; /* 增加声明栏高度 */
+            padding: 5px 10px !important;
+            font-size: 12px !important;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
+            .coze-web-sdk-chat-input-container {
+                bottom: 60px !important; /* 移动设备上更高的位置 */
+            }
+            
+            .coze-web-sdk-footer {
+                height: 35px !important;
+            }
+            
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
-            .features-grid {
-                grid-template-columns: 1fr;
+            .feature-title {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 头部区域 -->
         <header>
-            <div class="logo">
-                <img src="https://suotianyi.top/1.jpg" alt="毕小研头像">
+            <div class="logo-container">
+                <img src="https://free.picui.cn/free/2025/08/04/68902b126002c.jpg" alt="毕小研头像">
             </div>
             <h1>毕小研</h1>
-            <p class="subtitle">毕节市民族中学AI智能体</p>
+            <p class="subtitle">毕节市民族中学智能体</p>
         </header>
-
-        <!-- 功能特性 -->
+        
+        <div class="divider"></div>
+        
         <section class="features">
             <h2 class="section-title">核心功能</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3 class="feature-title">智能对话</h3>
-                    <p class="feature-desc">右下角点击图标即可</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3 class="feature-title">知识解答</h3>
-                    <p class="feature-desc">联网插件+本地知识库，够用</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3 class="feature-title">解题助手</h3>
-                    <p class="feature-desc">集成deepseek+豆包，强大的解题能力，我就不信解不出来</p>
-                </div>
+            
+            <div class="feature-item">
+                <h3 class="feature-title">
+                    <i class="fas fa-comments"></i>
+                    智能对话
+                </h3>
+                <p class="feature-desc">毕小研提供全天候智能对话服务，随时解答您的疑问。右下角点击图标即可开始对话，无论是学习问题还是日常咨询，毕小研都能快速响应并提供专业解答。</p>
             </div>
-        </section>
-        
-        <section>
-            <div>
-                <h1 class="feature-title">右下角点击图标即可</h1>
+            
+            <div class="feature-item">
+                <h3 class="feature-title">
+                    <i class="fas fa-lightbulb"></i>
+                    信息检索
+                </h3>
+                <p class="feature-desc">毕小研接入了本地知识库检索工具流，能够检索民中校园本地信息，为同学们减少信息成本</p>
+            </div>
+            
+            <div class="feature-item">
+                <h3 class="feature-title">
+                    <i class="fas fa-tasks"></i>
+                    解题助手
+                </h3>
+                <p class="feature-desc">集成deepseek+豆包工作流，带来强大的解题能力，拆分逻辑链，提供自组织，自适应，个性化的解题辅导</p>
+            </div>
+            
+            
+            
+            <div class="feature-item">
+                <h3 class="feature-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    学习规划
+                </h3>
+                <p class="feature-desc">帮助学生制定个性化学习计划，合理安排学习时间。毕小研会根据学生的学习进度和目标，提供科学的复习建议和时间管理方案。</p>
             </div>
         </section>
     </div>
-
-    <footer>
-        <p>&copy; 2024 毕小研.</p>
-    </footer>
-
+    
+    <a href="http://毕节民中.我爱你" class="floating-btn">
+        <i class="fas fa-blog"></i>
+        开发博客
+    </a>
+    
     <script>
         // 初始化 Coze 聊天客户端
-        new CozeWebSDK.WebChatClient({
+        新建 CozeWebSDK.WebChatClient({
             config: {
                 bot_id: '7530273230331052058',
             },
             componentProps: {
-                title: '毕小研',
+                标题: '毕小研',
             },
             auth: {
-                type: 'token',
+                请键入: 'token',
                 token: 'sat_O7I2VmlVZ6TYHTkhGHNJMSx1OxLED1kPZVhcUoFY6DUuxMtgjtImA4DjTtknnNy8',
                 onRefreshToken: function () {
                     return 'sat_O7I2VmlVZ6TYHTkhGHNJMSx1OxLED1kPZVhcUoFY6DUuxMtgjtImA4DjTtknnNy8';
                 }
             }
         });
+        
+        // 确保输入框位置正确
+        setTimeout(() => {
+            const inputContainer = document.querySelector('.coze-web-sdk-chat-input-container');
+            if (inputContainer) {
+                inputContainer.style.bottom = '50px';
+            }
+        }, 2000);
     </script>
-</body>
+</内容>
 </html>
